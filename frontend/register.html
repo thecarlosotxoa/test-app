@@ -1,0 +1,45 @@
+<!--
+File: register.html
+Purpose: Registration page for new users
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="login-container">
+    <!-- Registration form -->
+    <form class="login-form">
+      <h1>Register</h1>
+      <!-- Username field -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      <!-- Password field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <!-- Confirm password field -->
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" required />
+      </div>
+      <!-- Submit button -->
+      <button type="submit">Register</button>
+      <!-- Link to go back to login -->
+      <p class="register-link">
+        Already have an account?
+        <a href="index.html">Login here</a>
+      </p>
+    </form>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
