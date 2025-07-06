@@ -1,0 +1,100 @@
+/*
+File: style.css
+Purpose: Styles for the login and register forms, with responsiveness
+*/
+
+/* === Reset some defaults for consistent look across browsers === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* include border/padding in width/height calculations */
+}
+
+/* === Set up base body styling === */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* readable, web-safe font */
+  background: #f5f5f5; /* light gray background */
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  height: 100vh;           /* fill full viewport height */
+}
+
+/* === Container for the login/register box === */
+.login-container {
+  width: 100%;
+  max-width: 400px;        /* prevents container from being too wide on large screens */
+  padding: 2rem;
+  background: white;       /* contrast from the gray background */
+  border-radius: 8px;      /* smooth corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* subtle shadow for elevation */
+}
+
+/* === Main title styling inside the form === */
+.login-form h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* === Spacing between input groups === */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* === Label styling for form fields === */
+.form-group label {
+  display: block;          /* full width block label */
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+/* === Input fields styling === */
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* === Submit button styling === */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background: #007bff;     /* standard blue */
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease; /* smooth hover transition */
+}
+
+/* === Hover effect for the submit button === */
+button[type="submit"]:hover {
+  background: #0056b3;     /* darker blue on hover */
+}
+
+/* === Register link below the button === */
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* === Style for the register link itself === */
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* === Hover style for the register link === */
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* === Responsive tweaks for small screens === */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem; /* tighter padding on narrow screens */
+  }
+}
