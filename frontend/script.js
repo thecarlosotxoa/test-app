@@ -1,6 +1,6 @@
 /*
 File: script.js
-Purpose: Handles basic form submissions for login and register pages
+Purpose: Handles basic form submissions for login and register pages with backend integration
 */
 
 // Wait for the DOM to be ready
@@ -13,18 +13,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector(".login-form");
 
     loginForm.addEventListener("submit", (e) => {
-      e.preventDefault(); // prevent actual form submission
+      e.preventDefault();
 
-      // get form data
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      console.log("Login submitted with:");
-      console.log("Username:", username);
-      console.log("Password:", password);
-
-      // you can add a redirect or fake authentication here later
-      alert(`Welcome back, ${username}! (fake login for demo)`);
+      // send POST request to backend
+      fetch("http://localhost:8080/api/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          username,
+          password,
+        }),
+      })
+        .then((res) => res.text())
+        .then((data) => {
+          alert(data);
+        })
+        .catch((err) => {
+          console.error("Login error:", err);
+          alert("Something went wrong.");
+        });
     });
   }
 
@@ -33,28 +45,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const registerForm = document.querySelector(".login-form");
 
     registerForm.addEventListener("submit", (e) => {
-      e.preventDefault(); // prevent actual form submission
+      e.preventDefault();
 
-      // get form data
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
       const confirmPassword = document.getElementById("confirm-password").value;
 
-      // simple password match validation
       if (password !== confirmPassword) {
-        alert("Passwords do not match. Please try again.");
+        alert("Passwords do not match.");
         return;
       }
 
-      console.log("Registration submitted with:");
-      console.log("Username:", username);
-      console.log("Password:", password);
-
-      // you can add real registration logic here later
-      alert(`Account created for ${username}! (fake register for demo)`);
-
-      // optionally redirect to login
-      window.location.href = "login.html";
+      // send POST request to backend
+      fetch("http://localhost:8080/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          username,
+          password,
+        }),
+      })
+        .then((res) => res.text())
+        .then((data) => {
+          alert(data);
+          window.location.href = "login.html";
+        })
+        .catch((err) => {
+          console.error("Register error:", err);
+          alert("Something went wrong.");
+        });
     });
   }
 
